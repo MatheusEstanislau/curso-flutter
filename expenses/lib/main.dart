@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
 
   List<Transaction> get recentTransactions {
     return transactions.where((tr) {
-      return tr.date.isAfter(DateTime.now().subtract(Duration(days: 7)));
+      return tr.date.isAfter(DateTime.now().subtract(const Duration(days: 7)));
     }).toList();
   }
 
@@ -80,17 +80,17 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SingleChildScrollView(
         child: transactions.isEmpty
-            ? Container(
+            ? SizedBox(
                 width: double.infinity,
                 child: Column(
                   children: [
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Text(
                       "Nenhuma transação cadastrada",
                       style: Theme.of(context).textTheme.headline6,
                     ),
-                    SizedBox(height: 20),
-                    Container(
+                    const SizedBox(height: 20),
+                    SizedBox(
                       height: 200,
                       child: Image.asset(
                         'assets/images/waiting.png',
