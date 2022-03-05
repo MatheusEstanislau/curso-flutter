@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals/components/category_item.dart';
 import 'package:meals/data/dummy_data.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -16,12 +17,7 @@ class CategoriesScreen extends StatelessWidget {
           crossAxisSpacing: 20,
         ),
         children: [
-          ...dummyCategories.map((e) => Container(
-              child: Center(child: Text(e.title, style: Theme.of(context).textTheme.headline6,)),
-              decoration: BoxDecoration(
-                color: e.color,
-                borderRadius: const BorderRadius.all(Radius.circular(8)),
-              )))
+          ...dummyCategories.map((e) => CategoryItem(title: e.title, color: e.color)).toList()
         ],
       ),
     );
